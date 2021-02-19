@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 
-namespace DesignCrowd.Test.Two
+namespace DesignCrowd.Test.Services.BusinessDayCounterTests
 {
     [TestFixture]
-    public partial class BusinessDayCounterTests
+    public partial class BusinessDayCounterTest
     {
         private BusinessDayCounter _businessDayCounter;
 

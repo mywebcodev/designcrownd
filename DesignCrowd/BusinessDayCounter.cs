@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignCrowd.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,7 +27,7 @@ namespace DesignCrowd
                 return days;
             }
 
-            if (start.DayOfWeek != DayOfWeek.Saturday && start.DayOfWeek != DayOfWeek.Sunday)
+            if (!start.IsWeekend())
             {
                 days.Add(start);
             }

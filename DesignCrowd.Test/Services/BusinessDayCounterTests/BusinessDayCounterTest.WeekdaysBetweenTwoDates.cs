@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections;
+using NUnit.Framework;
 
-namespace DesignCrowd.Test.Two
+namespace DesignCrowd.Test.Services.BusinessDayCounterTests
 {
-    public partial class BusinessDayCounterTests
+    public partial class BusinessDayCounterTest
     {
-        public class WeekDaysBetweenTwoDates : BusinessDayCounterTests
+        public class WeekDaysBetweenTwoDates : BusinessDayCounterTest
         {
             [Test]
             [TestCaseSource(nameof(BusinessDayCounterTests))]
