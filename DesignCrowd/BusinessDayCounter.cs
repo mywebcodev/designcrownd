@@ -63,9 +63,15 @@ namespace DesignCrowd
         /// <param name="end">The end date.</param>
         /// <param name="pHolidays">Collection of public holidays.</param>
         /// <returns>Number of business days</returns>
-        public int BusinessDaysBetweenTwoDates(DateTime start, DateTime end, IEnumerable<DateTime> pHolidays)
+        public int BusinessDaysBetweenTwoDates(DateTime start, DateTime end, IList<DateTime> pHolidays)
         {
             var days = GetWeekdaysRangeBetweenTwoDates(start, end);
+
+            if (pHolidays == null || !pHolidays.Any())
+            {
+                return days.Count;
+            }
+
             var publicHolidaysHash = pHolidays.Select(h => h.Ticks).ToHashSet();
             return days.Count(day => !publicHolidaysHash.Contains(day.Ticks));
         }

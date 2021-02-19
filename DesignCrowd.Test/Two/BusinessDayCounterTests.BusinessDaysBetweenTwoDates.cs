@@ -45,9 +45,21 @@ namespace DesignCrowd.Test.Two
                         TestName = "7th October 2013 - 7st January 2014: fifty nine days."
                     };
 
+                    var returnsDaysCountWhenHolidaysIsNullTestCaseData = new TestCaseData(new DateTime(2013, 10, 7), new DateTime(2014, 1, 1), null, 61)
+                    {
+                        TestName = "7th October 2013 - 7st January 2014: sixty one day when holidays is null."
+                    };
+
+                    var returnsDaysCountWhenHolidaysIsEmptyTestCaseData = new TestCaseData(new DateTime(2013, 10, 7), new DateTime(2014, 1, 1), new List<DateTime>(), 61)
+                    {
+                        TestName = "7th October 2013 - 7st January 2014: sixty one day when holidays is empty."
+                    };
+
                     yield return oneDayTestCaseData;
                     yield return zeroDaysTestCaseData;
                     yield return fiftyNineDaysTestCaseData;
+                    yield return returnsDaysCountWhenHolidaysIsNullTestCaseData;
+                    yield return returnsDaysCountWhenHolidaysIsEmptyTestCaseData;
                 }
             }
         }
