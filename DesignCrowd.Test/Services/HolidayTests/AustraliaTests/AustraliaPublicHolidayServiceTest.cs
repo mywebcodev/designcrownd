@@ -10,7 +10,6 @@ namespace DesignCrowd.Test.Services.HolidayTests.AustraliaTests
    public class AustraliaPublicHolidayServiceTest
     {
         private AustraliaPublicHolidayService _australiaPublicHolidayService;
-        private int _year = 2021;
 
         [SetUp]
         public void SetUp()
@@ -19,111 +18,133 @@ namespace DesignCrowd.Test.Services.HolidayTests.AustraliaTests
         }
 
         [Test]
-        public void ReturnsNewYearDate()
+        [TestCase(2017, 1, 2)]
+        [TestCase(2022, 1, 3)]
+        public void ReturnsNewYearDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 1, 1);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.NewYear(_year);
+            var result = _australiaPublicHolidayService.NewYear(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsLabourDayDate()
+        [TestCase(2021, 10, 4)]
+        [TestCase(2022, 10, 3)]
+        public void ReturnsLabourDayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 10, 4);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.LabourDay(_year);
+            var result = _australiaPublicHolidayService.LabourDay(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsAustraliaDayDate()
+        [TestCase(2021, 1, 26)]
+        [TestCase(2022, 1, 26)]
+        public void ReturnsAustraliaDayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 1, 26);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.AustraliaDay(_year);
+            var result = _australiaPublicHolidayService.AustraliaDay(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsQueensBirthdayDate()
+        [TestCase(2021, 6, 14)]
+        [TestCase(2022, 6, 13)]
+        public void ReturnsQueensBirthdayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 6, 14);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.QueensBirthday(_year);
+            var result = _australiaPublicHolidayService.QueensBirthday(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsAnzacDayDate()
+        [TestCase(2021, 4, 26)]
+        [TestCase(2022, 4, 25)]
+        public void ReturnsAnzacDayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 4, 26);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.AnzacDay(_year);
+            var result = _australiaPublicHolidayService.AnzacDay(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsChristmasDayDate()
+        [TestCase(2021, 12, 27)]
+        [TestCase(2022, 12, 26)]
+        public void ReturnsChristmasDayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 12, 27);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.Christmas(_year);
+            var result = _australiaPublicHolidayService.Christmas(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsBoxingDayDate()
+        [TestCase(2021, 12, 27)]
+        [TestCase(2020, 12, 28)]
+        public void ReturnsBoxingDayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 12, 27);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.BoxingDay(_year);
+            var result = _australiaPublicHolidayService.BoxingDay(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsGoodFridayDate()
+        [TestCase(2021, 4, 2)]
+        [TestCase(2020, 4, 10)]
+        public void ReturnsGoodFridayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 4, 2);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.GoodFriday(_year);
+            var result = _australiaPublicHolidayService.GoodFriday(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsEasterSaturdayDate()
+        [TestCase(2021, 4, 3)]
+        [TestCase(2022, 4, 16)]
+        public void ReturnsEasterSaturdayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 4, 3);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.EasterSaturday(_year);
+            var result = _australiaPublicHolidayService.EasterSaturday(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsEasterSundayDate()
+        [TestCase(2021, 4, 4)]
+        [TestCase(2022, 4, 17)]
+        public void ReturnsEasterSundayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 4, 4);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.EasterSunday(_year);
+            var result = _australiaPublicHolidayService.EasterSunday(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }
 
         [Test]
-        public void ReturnsEasterMondayDate()
+        [TestCase(2021, 4, 5)]
+        [TestCase(2022, 4, 18)]
+        public void ReturnsEasterMondayDate(int year, int month, int day)
         {
-            var expected = new DateTime(_year, 4, 5);
+            var expected = new DateTime(year, month, day);
 
-            var result = _australiaPublicHolidayService.EasterMonday(_year);
+            var result = _australiaPublicHolidayService.EasterMonday(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }

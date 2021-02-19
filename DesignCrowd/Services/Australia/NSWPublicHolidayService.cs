@@ -13,6 +13,7 @@ namespace DesignCrowd.Services.Australia
 
         public DateTime QueensBirthday(int year)
         {
+            // Second Monday of June.
             return new DateTime(year, 6, 1).SetNextDay(DayOfWeek.Monday).AddDays(7);
         }
     }
