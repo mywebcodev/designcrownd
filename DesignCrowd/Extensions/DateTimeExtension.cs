@@ -6,7 +6,7 @@ namespace DesignCrowd.Extensions
     public static class DateTimeExtension
     {
         private static readonly DayOfWeek[] Weekends = {DayOfWeek.Saturday, DayOfWeek.Sunday};
-       
+
         public static bool IsWeekend(this DateTime date)
         {
             return Weekends.Any(wknd => date.DayOfWeek == wknd);

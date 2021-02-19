@@ -10,9 +10,9 @@ namespace DesignCrowd.Services.Australia.Factories
             switch (state)
             {
                 case AustralianState.NSW:
-                    return new NSWPublicHolidayCreator();
+                    return new NswPublicHolidayCreator();
                 case AustralianState.QLD:
-                    return new QLDPublicHolidayCreator();
+                    return new QldPublicHolidayCreator();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }

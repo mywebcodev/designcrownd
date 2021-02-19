@@ -1,4 +1,5 @@
-﻿using DesignCrowd.Services.Australia.Factories;
+﻿using DesignCrowd.Helpers;
+using DesignCrowd.Services.Australia.Factories;
 using System;
 
 namespace DesignCrowd.Services.Australia
@@ -14,14 +15,9 @@ namespace DesignCrowd.Services.Australia
             _individualPublicHolidayService = creator.Create();
         }
 
-        public DateTime BankHoliday(int year)
-        {
-            throw new NotImplementedException();
-        }
-
         public DateTime NewYear(int year)
         {
-            return new DateTime(year, 1, 1);
+            return HolidayHelper.AddFollowingWeekend(new DateTime(year, 1, 1));
         }
 
         public DateTime LabourDay(int year)
@@ -31,7 +27,7 @@ namespace DesignCrowd.Services.Australia
 
         public DateTime AustraliaDay(int year)
         {
-            return new DateTime(year, 1, 26);
+            return HolidayHelper.AddFollowingWeekend(new DateTime(year, 1, 26));
         }
 
         public DateTime QueensBirthday(int year)
@@ -41,7 +37,7 @@ namespace DesignCrowd.Services.Australia
 
         public DateTime AnzacDay(int year)
         {
-            return _individualPublicHolidayService.AnzacDay(year);
+            return HolidayHelper.AddFollowingWeekend(new DateTime(year, 4, 25));
         }
 
         public DateTime Christmas(int year)

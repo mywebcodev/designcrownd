@@ -1,6 +1,6 @@
 ﻿namespace DesignCrowd.Services.Australia.Factories
 {
-    public class NSWPublicHolidayCreator : IAustraliaIndividualPublicHolidayCreator
+    public class NswPublicHolidayCreator : IAustraliaIndividualPublicHolidayCreator
     {
 
         public IAustraliaIndividualPublicHolidayService Create()

@@ -4,7 +4,7 @@ using DesignCrowd.Services.Australia.Factories;
 using NUnit.Framework;
 using System;
 
-namespace DesignCrowd.Test.Services.AustraliaTests
+namespace DesignCrowd.Test.Services.HolidayTests.AustraliaTests
 {
     [TestFixture]
    public class AustraliaPublicHolidayServiceTest
@@ -15,7 +15,7 @@ namespace DesignCrowd.Test.Services.AustraliaTests
         [SetUp]
         public void SetUp()
         {
-            _australiaPublicHolidayService = new AustraliaPublicHolidayService(new ChristianPublicHolidayService(), new NSWPublicHolidayCreator());
+            _australiaPublicHolidayService = new AustraliaPublicHolidayService(new ChristianPublicHolidayService(), new NswPublicHolidayCreator());
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace DesignCrowd.Test.Services.AustraliaTests
         [Test]
         public void ReturnsAnzacDayDate()
         {
-            var expected = new DateTime(_year, 4, 25);
+            var expected = new DateTime(_year, 4, 26);
 
             var result = _australiaPublicHolidayService.AnzacDay(_year);
 
@@ -69,11 +69,61 @@ namespace DesignCrowd.Test.Services.AustraliaTests
         }
 
         [Test]
+        public void ReturnsChristmasDayDate()
+        {
+            var expected = new DateTime(_year, 12, 27);
+
+            var result = _australiaPublicHolidayService.Christmas(_year);
+
+            Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+        [Test]
         public void ReturnsBoxingDayDate()
         {
-            var expected = new DateTime(_year, 11, 26);
+            var expected = new DateTime(_year, 12, 27);
 
             var result = _australiaPublicHolidayService.BoxingDay(_year);
+
+            Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+        [Test]
+        public void ReturnsGoodFridayDate()
+        {
+            var expected = new DateTime(_year, 4, 2);
+
+            var result = _australiaPublicHolidayService.GoodFriday(_year);
+
+            Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+        [Test]
+        public void ReturnsEasterSaturdayDate()
+        {
+            var expected = new DateTime(_year, 4, 3);
+
+            var result = _australiaPublicHolidayService.EasterSaturday(_year);
+
+            Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+        [Test]
+        public void ReturnsEasterSundayDate()
+        {
+            var expected = new DateTime(_year, 4, 4);
+
+            var result = _australiaPublicHolidayService.EasterSunday(_year);
+
+            Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+        [Test]
+        public void ReturnsEasterMondayDate()
+        {
+            var expected = new DateTime(_year, 4, 5);
+
+            var result = _australiaPublicHolidayService.EasterMonday(_year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
         }

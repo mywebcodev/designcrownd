@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace DesignCrowd.Services.Australia.Factories
+﻿namespace DesignCrowd.Services.Australia.Factories
 {
-    public class QLDPublicHolidayCreator : IAustraliaIndividualPublicHolidayCreator
+    public class QldPublicHolidayCreator : IAustraliaIndividualPublicHolidayCreator
     {
         public IAustraliaIndividualPublicHolidayService Create()
         {
-            throw new NotImplementedException();
+            return new QldPublicHolidayService();
         }
     }
 }

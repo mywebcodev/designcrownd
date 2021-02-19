@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignCrowd.Helpers;
+using System;
 
 namespace DesignCrowd.Services
 {
@@ -7,12 +8,12 @@ namespace DesignCrowd.Services
 
         public DateTime Christmas(int year)
         {
-            return new DateTime(year, 12, 25);
+            return HolidayHelper.AddFollowingWeekend(new DateTime(year, 12, 25));
         }
 
         public DateTime BoxingDay(int year)
         {
-            return new DateTime(year, 12, 26);
+            return HolidayHelper.AddFollowingWeekend(new DateTime(year, 12, 26));
         }
 
         public DateTime GoodFriday(int year)

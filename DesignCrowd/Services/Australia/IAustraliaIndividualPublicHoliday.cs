@@ -6,8 +6,6 @@ namespace DesignCrowd.Services.Australia
     {
         DateTime QueensBirthday(int year);
 
-        DateTime AnzacDay(int year);
-
         DateTime LabourDay(int year);
     }
 }
