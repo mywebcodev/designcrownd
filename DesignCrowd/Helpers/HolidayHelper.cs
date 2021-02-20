@@ -3,7 +3,7 @@ using System;
 
 namespace DesignCrowd.Helpers
 {
-    public static class HolidayHelper
+    public class HolidayHelper
     {
         public static DateTime AddFollowingWeekend(DateTime date)
         {
