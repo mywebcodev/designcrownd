@@ -1,6 +1,7 @@
 ﻿using DesignCrowd.Services.Australia;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace DesignCrowd.Test.Services.HolidayTests.AustraliaTests.IndividualPublicHolidaysTests
 {
@@ -36,6 +37,24 @@ namespace DesignCrowd.Test.Services.HolidayTests.AustraliaTests.IndividualPublic
             var result = _nswPublicHolidayService.LabourDay(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+
+        [Test]
+        public void ReturnsAllIndividualHolidays()
+        {
+            const int year = 2021;
+
+            var expected = new List<DateTime>
+            {
+                new DateTime(year, 6, 14),
+                new DateTime(year, 10, 4)
+            };
+
+            var result = _nswPublicHolidayService.GetAll(year);
+
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(DateTime));
+            CollectionAssert.AreEquivalent(expected, result);
         }
     }
 }

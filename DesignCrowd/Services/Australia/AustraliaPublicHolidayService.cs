@@ -1,6 +1,8 @@
 ﻿using DesignCrowd.Helpers;
 using DesignCrowd.Services.Australia.Factories;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DesignCrowd.Services.Australia
 {
@@ -68,6 +70,16 @@ namespace DesignCrowd.Services.Australia
         public DateTime EasterMonday(int year)
         {
             return _christianPublicHolidayService.EasterMonday(year);
+        }
+
+        public IEnumerable<DateTime> GetAll(int year)
+        {
+            var pHolidays = _individualPublicHolidayService.GetAll(year).Concat(_christianPublicHolidayService.GetAll(year)).ToList();
+            pHolidays.Add(NewYear(year));
+            pHolidays.Add(AustraliaDay(year));
+            pHolidays.Add(AnzacDay(year));
+
+            return pHolidays;
         }
     }
 }

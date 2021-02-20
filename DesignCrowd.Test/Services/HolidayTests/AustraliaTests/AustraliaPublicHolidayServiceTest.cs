@@ -3,6 +3,7 @@ using DesignCrowd.Services.Australia;
 using DesignCrowd.Services.Australia.Factories;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace DesignCrowd.Test.Services.HolidayTests.AustraliaTests
 {
@@ -147,6 +148,32 @@ namespace DesignCrowd.Test.Services.HolidayTests.AustraliaTests
             var result = _australiaPublicHolidayService.EasterMonday(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+        [Test]
+        public void ReturnsAllPublicHolidays()
+        {
+            const int year = 2021;
+
+            var expected = new List<DateTime>
+            {
+                new DateTime(year, 10, 4),
+                new DateTime(year, 6, 14),
+                new DateTime(year, 12, 27),
+                new DateTime(year, 12, 27),
+                new DateTime(year, 4, 2),
+                new DateTime(year, 4, 3),
+                new DateTime(year, 4, 4),
+                new DateTime(year, 4, 5),
+                new DateTime(year, 1, 1),
+                new DateTime(year, 1, 26),
+                new DateTime(year, 4, 26)
+            };
+
+            var result = _australiaPublicHolidayService.GetAll(year);
+
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(DateTime));
+            CollectionAssert.AreEquivalent(expected, result);
         }
     }
 }

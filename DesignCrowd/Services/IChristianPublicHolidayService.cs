@@ -2,7 +2,7 @@
 
 namespace DesignCrowd.Services
 {
-    public interface IChristianPublicHolidayService
+    public interface IChristianPublicHolidayService : IGetAllHolidays
     {
         DateTime Christmas(int year);
 

@@ -1,5 +1,6 @@
 ﻿using DesignCrowd.Extensions;
 using System;
+using System.Collections.Generic;
 
 namespace DesignCrowd.Services.Australia
 {
@@ -15,6 +16,11 @@ namespace DesignCrowd.Services.Australia
         {
             // Second Monday of June.
             return new DateTime(year, 6, 1).SetNextDay(DayOfWeek.Monday).AddDays(7);
+        }
+
+        public IEnumerable<DateTime> GetAll(int year)
+        {
+            return new[] {LabourDay(year), QueensBirthday(year)};
         }
     }
 }

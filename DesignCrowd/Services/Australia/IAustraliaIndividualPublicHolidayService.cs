@@ -2,7 +2,7 @@
 
 namespace DesignCrowd.Services.Australia
 {
-    public interface IAustraliaIndividualPublicHolidayService
+    public interface IAustraliaIndividualPublicHolidayService : IGetAllHolidays
     {
         DateTime QueensBirthday(int year);
 

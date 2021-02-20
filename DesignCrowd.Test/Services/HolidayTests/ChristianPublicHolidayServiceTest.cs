@@ -1,6 +1,7 @@
 ﻿using DesignCrowd.Services;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace DesignCrowd.Test.Services.HolidayTests
 {
@@ -85,6 +86,27 @@ namespace DesignCrowd.Test.Services.HolidayTests
             var result = _christianPublicHolidayService.EasterMonday(year);
 
             Assert.AreEqual(expected.Ticks, result.Ticks);
+        }
+
+        [Test]
+        public void ReturnsAllChristianHolidays()
+        {
+            const int year = 2021;
+
+            var expected = new List<DateTime>
+            {
+                new DateTime(year, 12, 27),
+                new DateTime(year, 12, 27),
+                new DateTime(year, 4, 2),
+                new DateTime(year, 4, 3),
+                new DateTime(year, 4, 4),
+                new DateTime(year, 4, 5)
+            };
+
+            var result = _christianPublicHolidayService.GetAll(year);
+
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(DateTime));
+            CollectionAssert.AreEquivalent(expected, result);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DesignCrowd.Helpers;
 using System;
+using System.Collections.Generic;
 
 namespace DesignCrowd.Services
 {
@@ -49,6 +50,11 @@ namespace DesignCrowd.Services
         public DateTime EasterMonday(int year)
         {
             return EasterSunday(year).AddDays(1);
+        }
+
+        public IEnumerable<DateTime> GetAll(int year)
+        {
+            return new[] {Christmas(year), BoxingDay(year), GoodFriday(year), EasterSaturday(year), EasterSunday(year), EasterMonday(year)};
         }
     }
 }
