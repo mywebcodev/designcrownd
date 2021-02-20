@@ -4,7 +4,7 @@ using System;
 
 namespace DesignCrowd.Services.Australia
 {
-    public class AustraliaPublicHolidayService : IAustraliaPublicHolidayServiceService
+    public class AustraliaPublicHolidayService : IAustraliaPublicHolidayService
     {
         private readonly IChristianPublicHolidayService _christianPublicHolidayService;
         private readonly IAustraliaIndividualPublicHolidayService _individualPublicHolidayService;

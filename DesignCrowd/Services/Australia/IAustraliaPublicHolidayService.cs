@@ -2,7 +2,7 @@
 
 namespace DesignCrowd.Services.Australia
 {
-    public interface IAustraliaPublicHolidayServiceService : IChristianPublicHolidayService, IAustraliaIndividualPublicHolidayService
+    public interface IAustraliaPublicHolidayService : IChristianPublicHolidayService, IAustraliaIndividualPublicHolidayService
     {
         DateTime NewYear(int year);
 
